@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -13,28 +12,14 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
-    private double xOffset = 0;
-    private double yOffset = 0;
-
+    private static final String PROGRAM_TITLE = "Example Program";
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 539, 443);
-        
-        scene.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        scene.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
-        
         stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle(PROGRAM_TITLE);
         stage.show();
     }
 
@@ -50,5 +35,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
