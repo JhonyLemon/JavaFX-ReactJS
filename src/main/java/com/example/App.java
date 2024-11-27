@@ -13,10 +13,12 @@ import java.io.IOException;
  */
 public class App extends Application {
     private static final String PROGRAM_TITLE = "Example Program";
-    private static Scene scene;
+    public static Scene scene;
+    public static Stage stage;
 
     @Override
     public void start(Stage stage) throws IOException {
+        App.stage = stage;
         scene = new Scene(loadFXML("primary"), 539, 443);
         stage.setScene(scene);
         stage.setTitle(PROGRAM_TITLE);
